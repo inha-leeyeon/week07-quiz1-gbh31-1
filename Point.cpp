@@ -1,29 +1,16 @@
-#include "Point.h"
+#ifndef POINT_H
+#define POINT_H
 
-Point::Point(int px, int py)
-{
-	x = px;
-	y = py;
-}
+class Point {
+public:
+    Point(int x = 0, int y = 0) : x(x), y(y) {}   // ✅ 헤더 안에 구현까지
+    int getX() const { return x; }
+    int getY() const { return y; }
+    void setX(int nx) { x = nx; }
+    void setY(int ny) { y = ny; }
 
-int Point::getX() const
-{
-	return x;
-}
+private:
+    int x, y;
+};
 
-int Point::getY() const
-{
-	return y;
-}
-
-void Point::setX(int px)
-{
-	x = px;
-}
-
-void Point::setY(int py)
-{
-	y = py;
-}
-
-
+#endif
