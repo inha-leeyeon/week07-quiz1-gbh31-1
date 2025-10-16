@@ -1,42 +1,26 @@
-#include "Square.h"
+#ifndef SQUARE_H
+#define SQUARE_H
 
-Square::Square(const std::string pname, int px, int py, unsigned int pside) :Point(px, py)
-{
-	name = pname;
-	side = pside;
-	area = side * side;
-}
+#include <string>
+#include "Point.h"
+using namespace std;
 
-unsigned int Square::getSide() const
-{
-	return side;
-}
+class Square : public Point {
+public:
+    Square(string n = "", int x = 0, int y = 0, unsigned int s = 0)
+        : Point(x, y), name(n), side(s), area(s * s) {}
 
-unsigned int Square::getArea() const
-{
-	return area;
-}
+    string getName() const { return name; }
+    unsigned int getSide() const { return side; }
+    unsigned int getArea() const { return area; }
 
-std::string Square::getName() const
-{
-	return name;
-}
+    void setName(string n) { name = n; }
+    void setSide(unsigned int s) { side = s; area = s * s; }
 
-void Square::setSide(unsigned int pside)
-{
-	side = pside;
-}
+private:
+    string name;
+    unsigned int side;
+    unsigned int area;
+};
 
-void Square::setArea(unsigned int side)
-{
-	area = side;
-}
-
-void Square::setName(std::string pname)
-{
-	name = pname;
-}
-
-
-
-
+#endif
